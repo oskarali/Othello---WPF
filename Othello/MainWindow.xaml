@@ -1,0 +1,67 @@
+﻿<Window x:Class="Othello.MainWindow"
+		 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		 Title="Othello Game"
+		 Height="600"
+		 Width="700"
+		 WindowStartupLocation="CenterScreen">
+	<DockPanel>
+		<!-- Menu -->
+		<Menu DockPanel.Dock="Top">
+			<MenuItem Header="_Game">
+				<MenuItem Header="_New Game" Command="{Binding NewGameCommand}" />
+				<Separator />
+				<MenuItem Header="_Exit" Command="{Binding ExitCommand}" />
+			</MenuItem>
+		</Menu>
+
+		<!-- Status bar at top -->
+		<Border DockPanel.Dock="Top" Background="LightGray" Padding="10">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+
+				<!-- Player 1 info -->
+				<StackPanel Grid.Column="0" Orientation="Vertical">
+					<TextBlock Text="{Binding Player1Name}" FontWeight="Bold" FontSize="14" />
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="Black: " />
+						<TextBlock Text="{Binding BlackScore}" FontWeight="Bold" />
+					</StackPanel>
+				</StackPanel>
+
+				<!-- Current player -->
+				<StackPanel Grid.Column="1" Orientation="Vertical" Margin="20,0">
+					<TextBlock Text="Current Player:" HorizontalAlignment="Center" />
+					<TextBlock Text="{Binding CurrentPlayerName}" FontWeight="Bold" FontSize="16"
+HorizontalAlignment="Center" />
+				</StackPanel>
+
+				<!-- Player 2 info -->
+				<StackPanel Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Right">
+					<TextBlock Text="{Binding Player2Name}" FontWeight="Bold" FontSize="14" />
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="White: " />
+						<TextBlock Text="{Binding WhiteScore}" FontWeight="Bold" />
+					</StackPanel>
+				</StackPanel>
+			</Grid>
+		</Border>
+
+		<!-- Game board -->
+		<Border DockPanel.Dock="Top"
+				Background="DarkGreen"
+				Margin="20"
+				BorderBrush="Black"
+				BorderThickness="2">
+			<Canvas Name="GameCanvas"
+					Width="480"
+					Height="480"
+					Background="DarkGreen"
+					MouseDown="GameCanvas_MouseDown" />
+		</Border>
+	</DockPanel>
+</Window>

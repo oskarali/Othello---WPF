@@ -1,0 +1,47 @@
+<Window x:Class="Othello.Views.DrawnDialog"
+          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+          Title="Game Over - Draw!" 
+          SizeToContent="WidthAndHeight" 
+          WindowStartupLocation="CenterScreen"
+          ResizeMode="NoResize">
+    <Grid Margin="30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Draw message -->
+        <TextBlock Grid.Row="0" 
+                     Text="Game Drawn!" 
+                     FontSize="20" 
+                     FontWeight="Bold" 
+                     HorizontalAlignment="Center"
+                     Margin="0,0,0,20" />
+
+        <!-- Score display -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
+            <TextBlock FontSize="16">Black:</TextBlock>
+            <TextBlock Name="txtBlackScore" FontSize="16" FontWeight="Bold" Margin="5,0,20,0">0</TextBlock>
+            <TextBlock FontSize="16">White:</TextBlock>
+            <TextBlock Name="txtWhiteScore" FontSize="16" FontWeight="Bold" Margin="5,0,0,0">0</TextBlock>
+        </StackPanel>
+
+        <!-- Info message -->
+        <TextBlock Grid.Row="2" 
+                     Text="Both players have the same score!" 
+                     FontSize="14" 
+                     HorizontalAlignment="Center"
+                     Margin="0,10,0,20" />
+
+        <!-- Close button -->
+        <Button Grid.Row="3" 
+                  Content="Close" 
+                  IsDefault="True"
+                  IsCancel="True"
+                  MinWidth="100" 
+                  HorizontalAlignment="Center" />
+    </Grid>
+</Window>
